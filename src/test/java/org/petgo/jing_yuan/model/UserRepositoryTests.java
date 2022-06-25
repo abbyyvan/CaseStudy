@@ -25,6 +25,7 @@ public class UserRepositoryTests {
     @Test
     // run this JUnit test---output:1/1 tests passes(100%)
     // then check the "petgo" database, "user" table is created
+
     public void testCreateUser() {
         // create a new user
         User user = new User();

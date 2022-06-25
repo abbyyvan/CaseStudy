@@ -1,6 +1,7 @@
 package org.petgo.jing_yuan.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private long id;
 
     @Column(name = "email")
@@ -30,14 +32,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Order> orders = new HashSet<>(0);
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
-    @JoinColumn(name = "address_id")
-    private Address address;
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = { CascadeType.ALL })
-    private Payment payment;
+    // one user can have many pet applications
+    @OneToMany(targetEntity = Application.class, cascade = { CascadeType.ALL })
+    private List ApplicationList;
 
 }
