@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -23,12 +24,19 @@ public class UserController {
         // go to register.html page
     }
 
-    @GetMapping("/logintest")
-    public String register() {
-        // userService.addUser(user);
-        System.out.println("postmappings");
-        // return "redirect:/login";
+    @GetMapping("/login")
+    public String login() {
         return "login";
+    }
+
+    @PostMapping("register_submit")
+    public String registerSubmit(@RequestParam String email, @RequestParam String password) {
+        System.out.println("registerSubmit: " + email + ", " + password);
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setPassword(password);
+        userService.addUser(newUser);
+        return "redirect:/login";
     }
 
 }

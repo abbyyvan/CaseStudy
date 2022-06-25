@@ -9,29 +9,9 @@
   <body>
     <div>
       <h2>Register</h2>
-      <form
-        th:object="${user_request_body}"
-        th:action="@{/register}"
-        method="POSTß"
-      >
-        <input
-          type="text"
-          th:field="*{username}"
-          name="username"
-          placeholder="Username"
-        />
-        <input
-          type="text"
-          th:field="*{email}"
-          name="email"
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          th:field="*{password}"
-          name="pasword"
-          placeholder="Password"
-        />
+      <form th:action="@{/register_submit}" method="POST">
+        <input type="text" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
 
         <button type="submit">Submit</button>
       </form>
