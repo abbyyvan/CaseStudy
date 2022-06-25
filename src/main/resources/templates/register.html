@@ -26,6 +26,7 @@
                 class="form-control"
                 id="inputEmail1"
                 aria-describedby="emailHelp"
+                required
               />
             </div>
           </div>
@@ -42,10 +43,28 @@
                 name="password"
                 class="form-control"
                 id="inputpassword"
+                minlength="6"
+                maxlength="10"
               />
             </div>
           </div>
         </div>
+
+        <!-- <div class="mb-3">
+          <div class="form-group row">
+            <label for="CPassword" class="col-form-label col-4"
+              >Confirm Password</label
+            >
+            <div class="col-6">
+              <input
+                type="password"
+                name="Cpassword"
+                class="form-control"
+                id="confirmPassword"
+              />
+            </div>
+          </div>
+        </div> -->
 
         <button type="submit" class="btn btn-primary">Submit</button>
         <!-- <input type="email" name="email" placeholder="Email" />
