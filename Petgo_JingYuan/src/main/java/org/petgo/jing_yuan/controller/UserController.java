@@ -29,7 +29,7 @@ public class UserController {
         return "login";
     }
 
-    @PostMapping("register_submit")
+    @PostMapping("register")
     public String registerSubmit(@RequestParam String email, @RequestParam String password) {
         System.out.println("registerSubmit: " + email + ", " + password);
         User newUser = new User();
