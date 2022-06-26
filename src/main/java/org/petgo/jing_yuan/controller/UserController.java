@@ -19,29 +19,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/register")
-    String signUpPage(Model model) {
-        model.addAttribute("user_request_body", new User());
-        System.out.println("getmapping");
-        log.info("GET-/register");
-        return "register";
-        // go to register.html page
-    }
+    // @GetMapping("/register")
+    // String signUpPage(Model model) {
+    //     model.addAttribute("user_request_body", new User());
+    //     System.out.println("getmapping");
+    //     log.info("GET-/register");
+    //     return "register";
+    //     // go to register.html page
+    // }
 
     // @GetMapping("/login")
     // public String login() {
     // return "login";
     // }
 
-    @GetMapping("/acc")
-    public String acc() {
-        return "account";
-    }
+    // @GetMapping("/account")
+    // public String acc() {
+    //     return "account";
+    // }
 
-    @GetMapping("/pet")
-    public String petCard() {
-        return "pet";
-    }
+    // @GetMapping("/pet")
+    // public String petCard() {
+    //     return "pet";
+    // }
 
     @PostMapping("register")
     public String registerSubmit(@RequestParam String email, @RequestParam String password) {

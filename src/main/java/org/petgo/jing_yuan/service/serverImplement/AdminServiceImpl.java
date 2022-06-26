@@ -8,10 +8,12 @@ import org.petgo.jing_yuan.repository.AdminRepository;
 import org.petgo.jing_yuan.repository.RoleRepository;
 import org.petgo.jing_yuan.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AdminServiceImpl implements AdminService {
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private AdminRepository adminRepository;
@@ -30,7 +32,8 @@ public class AdminServiceImpl implements AdminService {
         admin.setFirstName(adminDto.getFirstName());
         admin.setLastName(adminDto.getLastName());
         admin.setUsername(adminDto.getUsername());
-        admin.setPassword(adminDto.getPassword());
+        //encode pwd for security consider
+        admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
 
         // error: cannot find findByName, need to add findByName in RoleRepository.java
         admin.setRoles(Arrays.asList(roleRepository.findByName("ADMIN")));

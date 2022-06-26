@@ -71,7 +71,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -109,7 +109,13 @@
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
           <span class="navbar-text">  </span>
@@ -119,7 +125,7 @@
     <!-- this can be header component -->
 
     <div class="container text-center" style="margin-top: 200px">
-      <h2>Sign in</h2>
+      <h2 style="margin-bottom: 50px;">Sign in</h2>
       <form th:action="@{/login-submit}" method="POST">
         <div class="mb-3">
           <div class="form-group row">
@@ -157,29 +163,15 @@
           </div>
         </div>
 
-        <!-- <div class="mb-3">
-          <div class="form-group row">
-            <label for="CPassword" class="col-form-label col-4"
-              >Confirm Password</label
-            >
-            <div class="col-6">
-              <input
-                type="password"
-                name="Cpassword"
-                class="form-control"
-                id="confirmPassword"
-              />
-            </div>
-          </div>
-        </div> -->
+        
 
-        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-primary" style="margin-bottom: 10px">Submit</button>
 
-        <!-- <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
-
-        <button type="submit">Submit</button> -->
+          <div><a th:href="@{/forget-password}">Forget Password</a></div>
+          <div><a th:href="@{/register}">Create an account</a></div>
       </form>
+
+      <!-- this is footer  -->
     </div>
     <div style=" position: absolute;
   bottom: 0;
@@ -192,5 +184,6 @@
       </div></div>
     
     </nav>
+          <!-- this is footer  -->
   </body>
 </html>
