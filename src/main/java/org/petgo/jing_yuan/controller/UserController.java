@@ -28,10 +28,10 @@ public class UserController {
         // go to register.html page
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+    // @GetMapping("/login")
+    // public String login() {
+    // return "login";
+    // }
 
     @GetMapping("/acc")
     public String acc() {
@@ -53,11 +53,6 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @PostMapping("/login-submit")
-
-    public String LoginSubmit(@RequestParam String email, @RequestParam String password) {
-        log.info("Post-login, lead to application page");
-        return "account";
-    }
+    
 
 }

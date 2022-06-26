@@ -33,7 +33,7 @@ public class User {
     private String password;
 
     // one user can have many pet applications
-    @OneToMany(targetEntity = Application.class, cascade = { CascadeType.ALL })
-    private List ApplicationList;
+    // @OneToMany(targetEntity = Application.class, cascade = { CascadeType.ALL })
+    // private List ApplicationList;
 
 }
