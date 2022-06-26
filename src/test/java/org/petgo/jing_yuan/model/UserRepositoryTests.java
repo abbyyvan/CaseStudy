@@ -1,6 +1,7 @@
 package org.petgo.jing_yuan.model;
 
 import org.junit.jupiter.api.Test;
+import org.petgo.jing_yuan.repository.PetRepository;
 import org.petgo.jing_yuan.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,11 @@ public class UserRepositoryTests {
 
     @Autowired
     private UserRepository repo;
+    private PetRepository prepo;
 
     @Autowired
     private TestEntityManager entityManager;
+    private TestEntityManager pentityManager;
 
     @Test
     // run this JUnit test---output:1/1 tests passes(100%)
@@ -47,6 +50,24 @@ public class UserRepositoryTests {
 
         // user AssertThat to check if existUser and user are same user
         assertThat(existUser.getEmail()).isEqualTo(user2.getEmail());
+
+    }
+
+    @Test
+    // run this JUnit test---output:1/1 tests passes(100%)
+    // then check the "petgo" database, "user" table is created
+
+    public void testCreatePet() {
+        // create a new user
+        Pet p = new Pet();
+        p.setName("ada");
+        p.setApplication(new Application());
+        p.setDescription("description description");
+        p.setImageUrl(
+                "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+        prepo.save(p);
+        // user AssertThat to check if existUser and user are same user
+        assertThat(1 == 1);
 
     }
 

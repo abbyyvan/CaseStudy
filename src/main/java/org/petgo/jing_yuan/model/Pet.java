@@ -20,10 +20,12 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pet_id")
     private Long id;
-    private String pet_name;
+    private String name;
     private String description;
-    
+
     @OneToOne
     @JoinTable(name = "application_detail")
     private Application application;
+
+    private String imageUrl;
 }
