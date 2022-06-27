@@ -83,6 +83,11 @@ public class LoginController {
         return "pet";
     }
 
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+
     @PostMapping("/login-submit")
 
     public String LoginSubmit(@RequestParam String email, @RequestParam String password) {
