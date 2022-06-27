@@ -34,9 +34,9 @@ public class LoginController {
         log.info("Post-login");
         String email = user.getEmail();
         if (userRep.findByEmail(user.getEmail()) != null) {
-            return "pet";
+            return "redirect:/pet";
         } else
-            return "redirect:login";
+            return "redirect:/login";
 
     }
 
@@ -48,11 +48,6 @@ public class LoginController {
     @GetMapping("/account")
     public String acc() {
         return "account";
-    }
-
-    @GetMapping("/pet")
-    public String petCard() {
-        return "pet";
     }
 
     @GetMapping("/error")

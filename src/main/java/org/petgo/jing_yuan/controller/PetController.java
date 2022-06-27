@@ -5,55 +5,69 @@ import org.petgo.jing_yuan.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api")
+@Controller
+@Slf4j
+// @RequestMapping("/admin")
 public class PetController {
 
     @Autowired
     private PetService petService;
 
-    @GetMapping("/pets")
-    public List<Pet> getAllTutorials(@RequestParam(required = false) String title) {
-        return petService.getAllPets();
+    // @GetMapping("/view-pet")
+    // public String viewPetPage(Model model) {
+    // model.addAttribute("listPets", petService.getAllPets());
+    // return "pet";
+    // }
 
+    @GetMapping("/pet")
+    public String viewPetPage(Model model) {
+        model.addAttribute("listPets", petService.getAllPets());
+        return "pet";
     }
-
-    @GetMapping("/pets/{id}")
-    public Optional<Pet> getTutorialById(@PathVariable("id") long id) {
-      
-        return petService.getPetById(id);
-    }
-
     
-    @PostMapping("/pets")
-    public void createTutorial(@RequestBody Pet Pet) {
-        petService.addPet(Pet);
+    @GetMapping("/petCard")
+    public String viewPetCard(Model model) {
+        model.addAttribute("listPets", petService.getAllPets());
+        return "pet_card";
     }
 
-    // To update a Pet record, we used the same save() and findById()
-    @PutMapping("/pets/{id}")
-    public void updateTutorial(@PathVariable("id") long id, @RequestBody Pet pet) {
-        Optional<Pet> petData = petService.getPetById(id);
-
-        if (petData.isPresent()) {
-            Pet _pet = petData.get();
-            _pet.setId(pet.getId());
-            _pet.setName(pet.getName());
-            _pet.setDescription(pet.getDescription());
-            _pet.setImageUrl(pet.getImageUrl());
-
-            petService.addPet(_pet);
-        }
+    // add new pet
+    @GetMapping("/showNewPet")
+    public String showNewPet(Model model) {
+        Pet pet = new Pet();
+        model.addAttribute("pet", pet);
+        return "new_pet";
     }
 
-    @DeleteMapping("/pets/{id}")
-    public void deletetPet(@PathVariable("id") long id) {
-        petService.deletePet(id);
+    @PostMapping("/savePet")
+    public String addPet(@ModelAttribute("pet") Pet pet) {
+        // save pet to repository
+        petService.addPet(pet);
+        return "redirect:/pet";
+    }
+
+    @GetMapping("/showFormForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+        Pet pet = petService.getPetById(id);
+        log.info("update pet");
+        model.addAttribute("pet", pet);
+        return "update_pet_form";
+    }
+
+    @DeleteMapping("/deletePet/{id}")
+    public String delPet(@PathVariable(value = "id") long id) {
+        this.petService.deletePet(id);
+        return "redirect:/update_pet_form";
     }
 
 }

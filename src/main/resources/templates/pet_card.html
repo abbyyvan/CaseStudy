@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Pet Database</title>
+  </head>
+  <body>
+    <nav th:replace="/fragments/nav :: nav-front"></nav>
+
+    <div class="container text-center" style="margin-top: 40px">
+      <div th:each="pet :${listPets}" class="card" style="width: 18rem">
+        <!-- <img
+          src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          class="card-img-top"
+          alt="..."
+        /> -->
+        <img
+          src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          class="card-img-top"
+          alt=""
+        />
+        <div class="card-body">
+          <h5 class="card-title" th:text="${pet.name}"></h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Start an Application</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

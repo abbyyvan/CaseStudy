@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,12 +9,50 @@
       rel="stylesheet"
     />
 
-    <title>Document</title>
+    <title>Pet Database</title>
   </head>
   <body>
     <nav th:replace="/fragments/nav :: nav-front"></nav>
 
-    <div class="container text-center" style="margin-top: 40px">
+    <div align="center" class="container my-4">
+      <h1>All Pets</h1>
+      <a th:href="@{/showNewPet}" class="btn btn-primary mb-4">Add new pet</a>
+      <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Pet Name</th>
+            <th>Pet Description</th>
+            <th>Pet Age</th>
+            <th>Last Modified</th>
+            <th>Update / Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="pet :${listPets}">
+            <td th:text="${pet.id}"></td>
+            <td th:text="${pet.name}"></td>
+            <td th:text="${pet.description}"></td>
+            <td th:text="${pet.age}"></td>
+            <td th:text="${pet.updatedAt}"></td>
+            <td>
+              <a
+                th:href="@{/showFormForUpdate/{id}(id=${pet.id})}"
+                class="btn btn-primary"
+                >Update</a
+              >
+              <a
+                th:href="@{/deletePet/{id}(id=${pet.id})}"
+                class="btn btn-secondary"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- <div class="container text-center" style="margin-top: 40px">
       <div class="card" style="width: 18rem">
         <img
           src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
@@ -30,6 +68,19 @@
           <a href="#" class="btn btn-primary">Start an Application</a>
         </div>
       </div>
+    </div> -->
+
+    <div th:fragment="footer">
+    <div style=" position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; "><nav class="navbar navbar-light fixed-buttom bg-dark">
+      <div class="container-fluid text-center">
+        <a class="navbar-brand" style="color: #fff" href="#"
+          >@2022 copyright by PetGo</a
+        >
+      </div>
     </div>
+</div>
   </body>
 </html>

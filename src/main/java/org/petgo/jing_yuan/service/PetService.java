@@ -13,8 +13,15 @@ public class PetService {
     @Autowired
     private PetRepository petRepository;
 
-    public Optional<Pet> getPetById(long id) {
-        return petRepository.findById(id);
+    public Pet getPetById(long id) {
+        Optional<Pet> foundPet = petRepository.findById(id);
+        Pet pet = null;
+        if (foundPet.isPresent()) {
+            pet = foundPet.get();
+        } else {
+            throw new RuntimeException("pet cannot be found by id::" + id);
+        }
+        return pet;
 
     }
 
