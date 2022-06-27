@@ -15,7 +15,7 @@
     <nav th:replace="/fragments/nav :: nav-front"></nav>
 
     <div class="container text-center" style="margin-top: 40px">
-      <div th:each="pet :${listPets}" class="card" style="width: 18rem">
+      <div class="card" th:each="pet :${listPets}" style="width: 18rem">
         <!-- <img
           src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
           class="card-img-top"
@@ -28,11 +28,11 @@
         />
         <div class="card-body">
           <h5 class="card-title" th:text="${pet.name}"></h5>
-          <p class="card-text">
+          <p class="card-text" th:text="${pet.description}">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <a href="#" class="btn btn-primary">Start an Application</a>
+          <a href="/ok" class="btn btn-primary">Click for Adopt</a>
         </div>
       </div>
     </div>

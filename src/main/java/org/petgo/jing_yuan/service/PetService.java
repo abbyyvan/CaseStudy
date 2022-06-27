@@ -48,5 +48,6 @@ public class PetService {
 
     public void deletePet(long id) {
         petRepository.deleteById(id);
+        System.out.println("deletePet in petService");
     }
 }

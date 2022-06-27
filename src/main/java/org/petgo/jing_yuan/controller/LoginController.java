@@ -55,4 +55,9 @@ public class LoginController {
         return "error";
     }
 
+    @GetMapping("/ok")
+    public String ok() {
+        return "success";
+    }
+
 }

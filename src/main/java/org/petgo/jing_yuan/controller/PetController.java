@@ -34,7 +34,7 @@ public class PetController {
         model.addAttribute("listPets", petService.getAllPets());
         return "pet";
     }
-    
+
     @GetMapping("/petCard")
     public String viewPetCard(Model model) {
         model.addAttribute("listPets", petService.getAllPets());
@@ -66,8 +66,9 @@ public class PetController {
 
     @DeleteMapping("/deletePet/{id}")
     public String delPet(@PathVariable(value = "id") long id) {
-        this.petService.deletePet(id);
-        return "redirect:/update_pet_form";
+        petService.deletePet(id);
+        return "redirect:/pet";
     }
+    
 
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Congrats</title>
+  </head>
+  <body>
+    <nav th:replace="/fragments/nav :: nav-front"></nav>
+    <div class="text-center mb-3" style="margin-top: 200px">
+      <h1>Application submitted</h1> 
+      <a href=""><img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVSNZjzkaZC9SFgQ3L5ePlEvu90FxrH2Hgzw&usqp=CAU"
+        alt=""
+      /></a>
+    </div>
+
+
+
+    <div th:fragment="footer">
+    <div style=" position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; "><nav class="navbar navbar-light fixed-buttom bg-dark">
+      <div class="container-fluid text-center">
+        <a class="navbar-brand" style="color: #fff" href="#"
+          >@2022 copyright by PetGo</a
+        >
+      </div>
+    </div>
+</div>
+  </body>
+</html>
