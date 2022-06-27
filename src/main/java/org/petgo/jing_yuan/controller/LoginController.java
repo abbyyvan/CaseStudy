@@ -92,6 +92,6 @@ public class LoginController {
 
     public String LoginSubmit(@RequestParam String email, @RequestParam String password) {
         log.info("Post-login, lead to application page");
-        return "account";
+        return "pet";
     }
 }

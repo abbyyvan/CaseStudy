@@ -1,5 +1,6 @@
 package org.petgo.jing_yuan.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.petgo.jing_yuan.model.Pet;
@@ -12,8 +13,13 @@ public class PetService {
     @Autowired
     private PetRepository petRepository;
 
-    public Optional<Pet> getPetrById(long id) {
+    public Optional<Pet> getPetById(long id) {
         return petRepository.findById(id);
+
+    }
+
+    public List<Pet> getAllPets() {
+        return petRepository.findAll();
 
     }
 
