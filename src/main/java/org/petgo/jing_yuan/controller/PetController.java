@@ -25,19 +25,11 @@ public class PetController {
 
     @GetMapping("/pets/{id}")
     public Optional<Pet> getTutorialById(@PathVariable("id") long id) {
-        /*
-         * the TutorialRepository provides a method findById(). This methods takes the
-         * id of the
-         * Pet to find. This method used to be findOne(). But since Spring data jpa
-         * 2.0 it's changed to findById().
-         */
+      
         return petService.getPetById(id);
     }
 
-    /*
-     * To add new Tutorials is really easy. You do this by using the
-     * TutorialRepository save() method.
-     */
+    
     @PostMapping("/pets")
     public void createTutorial(@RequestBody Pet Pet) {
         petService.addPet(Pet);
@@ -60,7 +52,7 @@ public class PetController {
     }
 
     @DeleteMapping("/pets/{id}")
-    public void deleteTPet(@PathVariable("id") long id) {
+    public void deletetPet(@PathVariable("id") long id) {
         petService.deletePet(id);
     }
 

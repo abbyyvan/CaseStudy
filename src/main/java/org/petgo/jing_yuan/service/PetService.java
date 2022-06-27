@@ -34,6 +34,7 @@ public class PetService {
             Pet _pet = petData.get();
             _pet.setDescription(pet.getDescription());
             _pet.setImageUrl(pet.getImageUrl());
+            _pet.setName(pet.getName());
             petRepository.save(_pet);
         }
     }
