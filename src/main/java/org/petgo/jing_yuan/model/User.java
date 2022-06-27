@@ -36,4 +36,7 @@ public class User {
     // @OneToMany(targetEntity = Application.class, cascade = { CascadeType.ALL })
     // private List ApplicationList;
 
+    @OneToOne
+    private Role role;
+
 }

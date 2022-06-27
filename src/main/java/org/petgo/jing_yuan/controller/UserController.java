@@ -21,11 +21,11 @@ public class UserController {
 
     // @GetMapping("/register")
     // String signUpPage(Model model) {
-    //     model.addAttribute("user_request_body", new User());
-    //     System.out.println("getmapping");
-    //     log.info("GET-/register");
-    //     return "register";
-    //     // go to register.html page
+    // model.addAttribute("user_request_body", new User());
+    // System.out.println("getmapping");
+    // log.info("GET-/register");
+    // return "register";
+    // // go to register.html page
     // }
 
     // @GetMapping("/login")
@@ -35,24 +35,26 @@ public class UserController {
 
     // @GetMapping("/account")
     // public String acc() {
-    //     return "account";
+    // return "account";
     // }
 
     // @GetMapping("/pet")
     // public String petCard() {
-    //     return "pet";
+    // return "pet";
     // }
-
-    @PostMapping("register")
-    public String registerSubmit(@RequestParam String email, @RequestParam String password) {
-        log.info("Post register, go to sign in page");
-        User newUser = new User();
-        newUser.setEmail(email);
-        newUser.setPassword(password);
-        userService.addUser(newUser);
-        return "redirect:/login";
+    @GetMapping("register")
+    public String registerSubmit(Model model) {
+       model.addAttribute("user",new User());
+        
+        return "register";
     }
 
-    
+    @PostMapping("register")
+    public String registerSubmit(User user) {
+        log.info("Post register, go to sign in page");
+       
+        userService.addUser(user);
+        return "redirect:/login";
+    }
 
 }

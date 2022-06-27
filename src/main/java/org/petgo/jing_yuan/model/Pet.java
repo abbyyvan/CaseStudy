@@ -23,9 +23,9 @@ public class Pet {
     private String name;
     private String description;
 
-    @OneToOne
-    @JoinTable(name = "application_detail")
-    private Application application;
+    // @OneToOne
+    // @JoinTable(name = "application_detail")
+    // private Application application;
 
     private String imageUrl;
 }
