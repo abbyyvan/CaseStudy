@@ -21,8 +21,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> getUserById(long id) {
-        return userRepository.findById(id);
+    public User getUserById(long id) {
+        Optional<User> foundUser = userRepository.findById(id);
+        User user = null;
+        if (foundUser.isPresent()) {
+            user = foundUser.get();
+        } else {
+            throw new RuntimeException("user cannot be found by id::" + id);
+        }
+        return user;
 
     }
 

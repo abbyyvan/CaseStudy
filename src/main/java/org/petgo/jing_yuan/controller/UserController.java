@@ -1,75 +1,60 @@
 package org.petgo.jing_yuan.controller;
 
-import java.util.UUID;
 
 import org.petgo.jing_yuan.model.User;
+import org.petgo.jing_yuan.service.ApplicationService;
 import org.petgo.jing_yuan.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
+@Slf4j
 public class UserController {
-
-    private static final String LOGIN = "redirect:/login";
-
-    @Autowired
+     @Autowired
     private UserService userService;
 
-    @GetMapping("register")
-    public String registerSubmit(Model model) {
-        model.addAttribute("user", new User());
+    private static final String USER = "redirect:/user";
 
-        return "register";
-    }
-
-    @PostMapping("register")
-    public String registerSubmit(User user) {
-        log.info("Post register, go to sign in page");
-
-        userService.addUser(user);
-        return LOGIN;
+     @GetMapping("/user")
+    public String viewUserPage(Model model) {
+        model.addAttribute("listUsers", userService.getAllUsers());
+        return "user";
     }
 
    
 
-    @DeleteMapping(path = "{id}")
-    public void deleteUserById(@PathVariable("id") long id) {
-        userService.deleteUser(id);
-    }
-
-    // @GetMapping("/register")
-    // String signUpPage(Model model) {
-    // model.addAttribute("user_request_body", new User());
-    // System.out.println("getmapping");
-    // log.info("GET-/register");
-    // return "register";
-    // // go to register.html page
+    // // add new user
+    // @GetMapping("/showNewUser")
+    // public String showNewUser(Model model) {
+    //     User user = new User();
+    //     model.addAttribute("user", user);
+    //     return "new_user";
     // }
 
-    // @GetMapping("/login")
-    // public String login() {
-    // return "login";
+    // @PostMapping("/saveUser")
+    // public String addUser(@ModelAttribute("user") User user) {
+    //     // save user to repository
+    //     userService.addUser(user);
+    //     return USER;
     // }
 
-    // @GetMapping("/account")
-    // public String acc() {
-    // return "account";
+    // @GetMapping("/showFormForUpdate/{id}")
+    // public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+    //     User user = userService.getUserById(id);
+    //     log.info("update user");
+    //     model.addAttribute("user", user);
+    //     return "update_user_form";
     // }
 
-    // @GetMapping("/pet")
-    // public String petCard() {
-    // return "pet";
+    // @DeleteMapping("/deleteUser/{id}")
+    // public String delUser(@PathVariable(value = "id") long id) {
+    //     userService.deleteUser(id);
+    //     return USER;
     // }
-
+    
 }
