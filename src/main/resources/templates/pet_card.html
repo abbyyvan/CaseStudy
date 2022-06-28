@@ -17,7 +17,6 @@
 
     <div class="row">
       <div class="col-sm">
-        
         <div th:replace="/fragments/card :: pet-card"></div>
       </div>
 
@@ -50,13 +49,18 @@
       </div>
     </div>
 
-    <div class="container text-center" style="margin-top: 40px">
+    <a
+      href="/ok"
+      class="btn btn-primary context-center"
+      style="margin-top: 40px"
+      ><button class="btn btn-primary" type="button" th:onclick="showAlert()">
+        Click for Adopt
+      </button></a
+    >
+
+    <!-- <div class="container text-center" style="margin-top: 40px">
       <div class="card" th:each="pet :${listPets}" style="width: 18rem">
-        <!-- <img
-          src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-          class="card-img-top"
-          alt="..."
-        /> -->
+      
         <img
           src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
           class="card-img-top"
@@ -80,6 +84,6 @@
           >
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>

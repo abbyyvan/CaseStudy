@@ -33,10 +33,11 @@ public class LoginController {
     public String LoginSubmit(User user) {
         log.info("Post-login");
         String email = user.getEmail();
-        if (userRep.findByEmail(user.getEmail()) != null) {
-            return "redirect:/pet";
-        } else
-            return "redirect:/login";
+        return "redirect:/pet";
+        // if (userRep.findByEmail(user.getEmail()) != null) {
+        // return "redirect:/pet";
+        // } else
+        // return "redirect:/login";
 
     }
 
