@@ -1,0 +1,10 @@
+this project is a great practive, I had fun and there're a lot can be improved
+
+- this app is more about admin end, i hope the User end account dashboard can be implemented as
+- the website layout and beautify can be updated 
+- connect to application and implement RESTful API for pet Adoption Application
+
+
+further features
+- account dashboard
+- pet adoption stauts revirew page
