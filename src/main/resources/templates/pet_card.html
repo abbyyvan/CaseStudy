@@ -9,10 +9,46 @@
       rel="stylesheet"
     />
 
-    <title>Pet Database</title>
+    <title>Pet Community</title>
+    <script type="text/javascript" th:src="@{/js/cssandjs/actions.js}"></script>
   </head>
   <body>
     <nav th:replace="/fragments/nav :: nav-front"></nav>
+
+    <div class="row">
+      <div class="col-sm">
+        
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+
+      <div class="col-sm">
+        <div th:replace="/fragments/card :: pet-card"></div>
+      </div>
+    </div>
 
     <div class="container text-center" style="margin-top: 40px">
       <div class="card" th:each="pet :${listPets}" style="width: 18rem">
@@ -32,7 +68,16 @@
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <a href="/ok" class="btn btn-primary">Click for Adopt</a>
+
+          <a href="/ok" class="btn btn-primary"
+            ><button
+              class="btn btn-primary"
+              type="button"
+              th:onclick="showAlert()"
+            >
+              Click for Adopt
+            </button></a
+          >
         </div>
       </div>
     </div>
