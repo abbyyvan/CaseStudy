@@ -17,6 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j // use Slf4j to use log
 public class LoginController {
+
+    private static final String PET = "redirect:/pet";
     @Autowired
     UserRepository userRep;
 
@@ -33,7 +35,8 @@ public class LoginController {
     public String LoginSubmit(User user) {
         log.info("Post-login");
         String email = user.getEmail();
-        return "redirect:/pet";
+        return PET;
+        //return "redirect:/pet";
         // if (userRep.findByEmail(user.getEmail()) != null) {
         // return "redirect:/pet";
         // } else

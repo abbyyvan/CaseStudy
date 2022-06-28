@@ -20,6 +20,7 @@ import java.util.Optional;
 // @RequestMapping("/admin")
 public class PetController {
 
+    private static final String PET = "redirect:/pet";
     @Autowired
     private PetService petService;
 
@@ -53,7 +54,7 @@ public class PetController {
     public String addPet(@ModelAttribute("pet") Pet pet) {
         // save pet to repository
         petService.addPet(pet);
-        return "redirect:/pet";
+        return PET;
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -67,7 +68,7 @@ public class PetController {
     @DeleteMapping("/deletePet/{id}")
     public String delPet(@PathVariable(value = "id") long id) {
         petService.deletePet(id);
-        return "redirect:/pet";
+        return PET;
     }
     
 

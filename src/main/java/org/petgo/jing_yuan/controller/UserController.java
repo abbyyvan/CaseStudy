@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Slf4j
 @Controller
 public class UserController {
+
+    private static final String LOGIN = "redirect:/login";
+
     @Autowired
     private UserService userService;
 
@@ -35,7 +38,7 @@ public class UserController {
         log.info("Post register, go to sign in page");
 
         userService.addUser(user);
-        return "redirect:/login";
+        return LOGIN;
     }
 
    
