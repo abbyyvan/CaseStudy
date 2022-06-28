@@ -1,9 +1,7 @@
 package org.petgo.jing_yuan.model;
 
 import org.junit.jupiter.api.Test;
-import org.petgo.jing_yuan.repository.PetRepository;
 import org.petgo.jing_yuan.repository.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
@@ -19,11 +17,11 @@ public class UserRepositoryTests {
 
     @Autowired
     private UserRepository repo;
-    private PetRepository prepo;
+
 
     @Autowired
     private TestEntityManager entityManager;
-    private TestEntityManager pentityManager;
+  
 
     // run this JUnit test---output:1/1 tests passes(100%)
     // then check the "petgo" database, "user" table is created
